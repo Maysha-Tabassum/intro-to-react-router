@@ -8,6 +8,7 @@ const Friend = ({ friend }) => {
     const { id, name, phone, email } = friend;
     return (
         <div className='friend'>
+            <p>Id: {id}</p>
             <h3>{name}</h3>
             <p>email: {email}</p>
             <p>phone: {phone}</p>

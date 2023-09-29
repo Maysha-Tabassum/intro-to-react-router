@@ -14,15 +14,30 @@ import Friends from './components/Friends/Friends.jsx';
 import FriendDetail from './components/FriendDetail/FriendDetail.jsx';
 import Posts from './components/Posts/Posts.jsx';
 import PostDetail from './components/PostDetail/PostDetail.jsx';
+import Photos from './components/Photos/Photos.jsx';
+import PhotoDetail from './components/PhotoDetail/PhotoDetail.jsx';
+import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
+
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Home></Home>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: 'about',
         element: <About></About>
+      },
+      {
+        path: 'photos',
+        element: <Photos></Photos>,
+        loader: () => fetch('https://jsonplaceholder.typicode.com/photos')
+      },
+      {
+        path: 'photo/:photoId',
+        element: <PhotoDetail></PhotoDetail>,
+        loader: ({ params }) => fetch(`https://jsonplaceholder.typicode.com/photos/${params.photoId}`)
       },
       {
         path: 'friends',
@@ -48,7 +63,7 @@ const router = createBrowserRouter([
       {
         path: 'contact',
         element: <Contact></Contact>
-      }
+      },
     ]
   }
 ])

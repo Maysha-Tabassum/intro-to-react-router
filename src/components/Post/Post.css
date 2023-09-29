@@ -4,3 +4,9 @@
     border: 3px solid mediumslateblue;
     border-radius: 15px;
 }
+
+.btn {
+    margin: 5px;
+    border: 2px solid purple;
+    border-radius: 20px;
+}
